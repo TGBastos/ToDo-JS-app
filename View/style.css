@@ -1,3 +1,17 @@
+header {
+    background-color: rgb(154, 186, 228);
+    font-family: 'Times New Roman';
+}
+
+h1 {
+    color: white;
+}
+
+
+main {
+    margin: 0.5rem;
+}
+
 .mainTitle {
     text-align: Center;
     font-size: 48px;
@@ -7,30 +21,27 @@
     display: grid;
     grid-template-columns: 240px 240px 240px 240px;
     position: absolute;
-    width: 960px;
-    margin: 50px 0 0 12.5%;
+    margin: 5rem;
+    margin-left: 25rem;
     padding: 40px;
+    justify-self: start;
 }
 
 .note {
     width: 220px;
-    height: 220px;
-    background-color: rgba(0, 0, 0, 0.842);
+    background-color: rgba(255, 230, 0, 0.842);
     margin: 20px;
     display: inline;
+    border-radius: 2% 2% 50% 50%;
 }
 
-.note input {
-    color: white;
-    caret-color: white;
-    margin: 12.5%;
+.deleteNote {
+    color: black;
+    background-color: transparent;
 }
 
-.addNoteButton {
-    border-radius: 10px;
-    margin: auto 20px 20px 20px;
-    padding: 5px;
-    width: 80px;
-    height: 30px;
-    cursor: pointer;
+button {
+    margin: .5rem;
+    background-color: white;
+    border: none;
 }

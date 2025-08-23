@@ -1,46 +1,35 @@
 var ids = [];
+var notesIds = [];
+const map = new Map();
+
 var idStorage;
 
 function getData() {
     var note;
     var storage = localStorage;
+    const keysArray = Array.from(storage);
+    keys = Object.keys(localStorage);
+    i = keys.length;
+    while (i--) {
+        if (localStorage.getItem(keys[i]) != null) {
+            notesIds.push(keys[i]);
 
-    for (var i = 0; i <= localStorage.length; i++) {
-       // console.log(localStorage)
-        idStorage = Object.keys(storage);
-        idStorage.sort((a,b) => a-b);
-        console.log(idStorage);
-        //console.log(localStorage.length);
-        //console.log(idStorage[1]);  
-        while (ids.length < localStorage.length) { 
-            var id = parseInt(idStorage[i]);
-            //console.log(localStorage.length)
-            var content = storage.getItem(id);
-            console.log(content);
+        }
+    }
+    notesIds.sort();
+    for (var i = 0; i <= notesIds.length; i++) {
+
+        id = notesIds[i];
+
+        if (storage.getItem(id) != null) {
             addNote(id);
-            console.log(i);
-                note = document.getElementById(id);
-                if (note.id == storage.key(parseInt(id))) {
-                    note.children.item(0).value = content;
-                 } 
-                else {
-                    var x = tryAgain(note.id, localStorage.key(id));
-                    if (x == note.id) {
-                        note.children.item(0).value = localStorage[id];
-                    }
-                }
-            i++;
+            var content = storage.getItem(id);
+
+            map.set(id, content);
+            note = document.getElementById(id);
+
+            note.childNodes.item(2).textContent = content;
         }
     }
 
-    function tryAgain(x, y) {
-        if (y = x) {
-            return y;
-        }
-        else {
-            y = +1;
-            console.log('tamo aq');
-            return y + tryAgain(x = x, y = y);
-        }
-    }
 }

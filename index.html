@@ -6,25 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo WebApps</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="View/reset.css">
     <link rel="stylesheet" href="View/style.css">
 </head>
 
 <body onload=getData()>
-    <header style="background-color: lightblue;">
+    <header>
         <h1 class="mainTitle">To Do List</h1>
     </header>
     <main>
-        <button onclick=saveNotes()>Save Notes</button>
+        <button type="button" class="btn btn-warning" onclick=saveNotes()>Save Notes</button>
         <ul id="notesList">
-            <button class="addNoteButton" onclick=addNote()>Add Note</button>
         </ul>
+        <button class="btn btn-success btn-sm w-10 h-25" onclick=addNote()>+</button>
     </main>
     <script src="Controllers/getData.js"></script>
     <script src="Controllers/addNote.js"></script>
     <script src="Controllers/saveNotes.js"></script>
     <script src="Controllers/deleteNote.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+
 </body>
 
 </html>

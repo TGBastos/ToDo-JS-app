@@ -1,49 +1,40 @@
 var divToAddNotes = document.getElementById('notesList');
 
-function addNote(id = 1) {
-    var idsLength = ids.length;
+function addNote(id = 0) {
     var noteId;
     noteId = checkNoteId(id);
     var newNote = createNote(noteId);
-    var lastId = ids[idsLength];
-    
-    if(noteId == 1){
-        console.log('aq 1');
-        var positionBeforeButton = divToAddNotes.children.length-1;
-        divToAddNotes.insertBefore(newNote, divToAddNotes.children.item(positionBeforeButton));
-    }else if (noteId < lastId)
-    {
-        console.log('aq 2');
-        addIndex = noteId-1
-        var foo =divToAddNotes.children.namedItem(`${addIndex}`)
-        console.log(foo);
-        divToAddNotes.insertBefore(newNote, foo);
-    } else {
-        console.log('aq 3');
+    var lastId = notesIds[notesIds.length - 1] + 1;
+
+    if (noteId == 0) {
         divToAddNotes.insertBefore(newNote, divToAddNotes.children.item(0));
+    } else {
+        var foo = divToAddNotes.children.namedItem(`${lastId}`)
+        divToAddNotes.insertBefore(newNote, foo);
     }
     function createNote(noteIndex) {
-        noteInput = "<input type='text' maxLength = 20>";
+        noteInput = " <textarea id= label class='form-control' rows='3'></textarea>";
         var note = document.createElement('li');
         note.className = `note`;
         note.id = noteIndex;
-        deleteNoteButton = `<button onclick= deleteNote(${noteIndex})>X</button>`
+        deleteNoteButton = `<button class="deleteNote" onclick= deleteNote(${noteIndex})>x</i></button>`
         note.title = noteIndex;
-        note.innerHTML += noteInput;
         note.innerHTML += deleteNoteButton;
+        note.innerHTML += noteInput;
         return note;
     }
 
     function checkNoteId(id) {
-        for (var i = 0; i <= ids.length; i++) {
-            if (ids[i] == id) {    
-                //console.log('id used');
+        for (var i = 0; i <= notesIds.length; i++) {
+            if (notesIds[i] == id) {
+                // console.log('id used');
                 id++
             } else {
                 //console.log(`${id} unused`)
-                ids.push(id);
-                ids.sort((a, b) => a - b)
-                i = ids.length + 1;
+                map.set(id, '');
+                notesIds.push(id);
+                //ids.sort((a, b) => a - b)
+                i = notesIds.length + 1;
                 // console.log(ids);
                 return id;
                 //console.log(ids[i]);
