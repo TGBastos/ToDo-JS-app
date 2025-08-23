@@ -35,9 +35,16 @@ main {
     border-radius: 2% 2% 50% 50%;
 }
 
+<<<<<<< HEAD
 .deleteNote {
     color: black;
     background-color: transparent;
+=======
+.note textarea {
+    color: white;
+    caret-color: white;
+    margin: 12.5%;
+>>>>>>> 4a85ab35bbeb1f393426dd2fdf94097449b74486
 }
 
 button {
